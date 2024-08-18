@@ -17,6 +17,7 @@ export default async function InvoicesTable({
     <div className="mt-6 flow-root">
       <div className="inline-block min-w-full align-middle">
         <div className="rounded-lg bg-gray-50 p-2 md:pt-0">
+          {/* Mobile View */}
           <div className="md:hidden">
             {invoices?.map((invoice) => (
               <div
@@ -36,6 +37,9 @@ export default async function InvoicesTable({
                       <p>{invoice.name}</p>
                     </div>
                     <p className="text-sm text-gray-500">{invoice.email}</p>
+                    <p className="text-sm text-gray-500">
+                      GST: {invoice.gst_number}
+                    </p>
                   </div>
                   <InvoiceStatus status={invoice.status} />
                 </div>
@@ -54,11 +58,16 @@ export default async function InvoicesTable({
               </div>
             ))}
           </div>
+
+          {/* Desktop View */}
           <table className="hidden min-w-full text-gray-900 md:table">
             <thead className="rounded-lg text-left text-sm font-normal">
               <tr>
                 <th scope="col" className="px-4 py-5 font-medium sm:pl-6">
                   Party
+                </th>
+                <th scope="col" className="px-3 py-5 font-medium">
+                  GST Number
                 </th>
                 <th scope="col" className="px-3 py-5 font-medium">
                   Email
@@ -72,6 +81,7 @@ export default async function InvoicesTable({
                 <th scope="col" className="px-3 py-5 font-medium">
                   Status
                 </th>
+
                 <th scope="col" className="relative py-3 pl-6 pr-3">
                   <span className="sr-only">Edit</span>
                 </th>
@@ -96,6 +106,9 @@ export default async function InvoicesTable({
                     </div>
                   </td>
                   <td className="whitespace-nowrap px-3 py-3">
+                    {invoice.gst_number}
+                  </td>
+                  <td className="whitespace-nowrap px-3 py-3">
                     {invoice.email}
                   </td>
                   <td className="whitespace-nowrap px-3 py-3">
@@ -107,6 +120,7 @@ export default async function InvoicesTable({
                   <td className="whitespace-nowrap px-3 py-3">
                     <InvoiceStatus status={invoice.status} />
                   </td>
+
                   <td className="whitespace-nowrap py-3 pl-6 pr-3">
                     <div className="flex justify-end gap-3">
                       <UpdateInvoice id={invoice.id} />

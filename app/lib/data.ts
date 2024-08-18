@@ -85,6 +85,8 @@ export async function fetchFilteredInvoices(
         invoices.amount,
         invoices.date,
         invoices.status,
+
+        parties.gst_number,
         parties.name,
         parties.email,
         parties.image_url
@@ -92,6 +94,8 @@ export async function fetchFilteredInvoices(
       JOIN parties ON invoices.party_id = parties.id
       WHERE
         parties.name ILIKE ${`%${query}%`} OR
+        parties.gst_number ILIKE ${`%${query}%`} OR
+
         parties.email ILIKE ${`%${query}%`} OR
         invoices.amount::text ILIKE ${`%${query}%`} OR
         invoices.date::text ILIKE ${`%${query}%`} OR
@@ -115,6 +119,8 @@ export async function fetchInvoicesPages(query: string) {
     WHERE
       parties.name ILIKE ${`%${query}%`} OR
       parties.email ILIKE ${`%${query}%`} OR
+      parties.gst_number ILIKE ${`%${query}%`} OR
+
       invoices.amount::text ILIKE ${`%${query}%`} OR
       invoices.date::text ILIKE ${`%${query}%`} OR
       invoices.status ILIKE ${`%${query}%`}
@@ -176,6 +182,7 @@ export async function fetchFilteredParties(query: string) {
 		  parties.id,
 		  parties.name,
 		  parties.email,
+		  parties.gst_number,
 		  parties.image_url,
 		  COUNT(invoices.id) AS total_invoices,
 		  SUM(CASE WHEN invoices.status = 'pending' THEN invoices.amount ELSE 0 END) AS total_pending,
@@ -184,8 +191,9 @@ export async function fetchFilteredParties(query: string) {
 		LEFT JOIN invoices ON parties.id = invoices.party_id
 		WHERE
 		  parties.name ILIKE ${`%${query}%`} OR
+		  parties.gst_number ILIKE ${`%${query}%`} OR
         parties.email ILIKE ${`%${query}%`}
-		GROUP BY parties.id, parties.name, parties.email, parties.image_url
+		GROUP BY parties.id, parties.name,parties.gst_number, parties.email, parties.image_url
 		ORDER BY parties.name ASC
 	  `;
 

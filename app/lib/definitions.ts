@@ -46,6 +46,7 @@ export type LatestInvoiceRaw = Omit<LatestInvoice, "amount"> & {
 };
 
 export type InvoicesTable = {
+  gst_number: string;
   id: string;
   party_id: string;
   name: string;
