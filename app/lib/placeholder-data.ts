@@ -16,14 +16,14 @@ const parties = [
     name: "Evil Rabbit",
     email: "evil@rabbit.com",
     gst_number: "27AABCU9603R1ZM", // GST Number
-    image_url: "/customers/evil-rabbit.png",
+    image_url: "/parties/evil-rabbit.png",
   },
   {
     id: "3958dc9e-712f-4377-85e9-fec4b6a6442a",
     name: "Delba de Oliveira",
     email: "delba@oliveira.com",
     gst_number: "27AABCU9603R1ZN", // GST Number
-    image_url: "/customers/delba-de-oliveira.png",
+    image_url: "/parties/delba-de-oliveira.png",
   },
   // Add more parties here if needed...
 ];
