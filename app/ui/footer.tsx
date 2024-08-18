@@ -19,7 +19,7 @@ const Footer = () => {
                 Learn more
               </a>
             </div>
-            <div className="footer-section customer-service mb-5 md:mb-0">
+            <div className="mb-5 md:mb-0">
               <h4 className="mb-2 text-yellow-400">Customer Service</h4>
               <ul className="list-none p-0">
                 <li className="mb-2">

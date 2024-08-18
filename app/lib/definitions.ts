@@ -19,7 +19,7 @@ export type Party = {
 
 export type Invoice = {
   id: string;
-  party_id: string; // Updated from customer_id to party_id
+  party_id: string;
   amount: number;
   date: string;
   // In TypeScript, this is called a string union type.
@@ -47,7 +47,7 @@ export type LatestInvoiceRaw = Omit<LatestInvoice, "amount"> & {
 
 export type InvoicesTable = {
   id: string;
-  party_id: string; // Updated from customer_id to party_id
+  party_id: string;
   name: string;
   email: string;
   image_url: string;
@@ -83,7 +83,7 @@ export type PartyField = {
 
 export type InvoiceForm = {
   id: string;
-  party_id: string; // Updated from customer_id to party_id
+  party_id: string;
   amount: number;
   status: "pending" | "paid";
 };
