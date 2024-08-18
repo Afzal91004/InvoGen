@@ -1,5 +1,4 @@
 import Image from "next/image";
-//logo import
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import InvoGenLogo from "./ui/invogen-logo";
