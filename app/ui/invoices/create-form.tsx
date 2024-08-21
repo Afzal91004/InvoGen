@@ -107,7 +107,7 @@ export default function Form() {
             <ol>
               <li>Goods once sold will not be taken back or exchanged.</li>
               <li>
-                All disputes are subject to 'use City Name' jurisdiction only
+                All disputes are subject to use City Name jurisdiction only
               </li>
             </ol>
           </div>
@@ -125,7 +125,7 @@ export default function Form() {
               Bank,Kokan Mercantile Co-operative Bank IMPS
             </div>
             <div>
-              <span>Account Holder's Name:</span> K.A. Engineering Works
+              <span>Account Holder&apos;s Name:</span> K.A. Engineering Works
             </div>
           </div>
         </div>
